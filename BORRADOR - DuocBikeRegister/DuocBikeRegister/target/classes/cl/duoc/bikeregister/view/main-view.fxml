@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cl.duoc.bikeregister.controller.MainController"
+            prefWidth="1180.0" prefHeight="760.0" style="-fx-background-color: #f3f6fb;">
+    <top>
+        <VBox spacing="4" style="-fx-background-color: #12345a;" BorderPane.alignment="CENTER">
+            <padding><Insets top="20" right="24" bottom="18" left="24"/></padding>
+            <Label text="🚲  DUOC BIKE REGISTER" style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Sistema de registro y consulta de bicicletas" style="-fx-font-size: 13px; -fx-text-fill: #d7e6f7;"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="14">
+            <padding><Insets top="18" right="22" bottom="12" left="22"/></padding>
+            <HBox spacing="16" alignment="TOP_CENTER">
+                <VBox spacing="10" prefWidth="340" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #dce4ee; -fx-border-radius: 10;">
+                    <padding><Insets top="16" right="17" bottom="16" left="17"/></padding>
+                    <Label text="REGISTRAR PERSONA Y BICICLETA" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #12345a;"/>
+                    <Separator/>
+                    <Label text="DATOS DEL ESTUDIANTE / FUNCIONARIO" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #54708d;"/>
+                    <Label text="RUT"/><TextField fx:id="txtRut" promptText="Ej: 12.345.678-9"/>
+                    <Label text="Nombre completo"/><TextField fx:id="txtNombre" promptText="Nombre y apellidos"/>
+                    <Label text="Carrera / Unidad"/><TextField fx:id="txtCarrera" promptText="Ej: Informática"/>
+                    <Label text="Teléfono"/><TextField fx:id="txtTelefono" promptText="Ej: 9 1234 5678"/>
+                    <Separator/>
+                    <Label text="DATOS DE LA BICICLETA" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #54708d;"/>
+                    <Label text="Marca"/><TextField fx:id="txtMarca" promptText="Ej: Trek"/>
+                    <Label text="Modelo"/><TextField fx:id="txtModelo" promptText="Ej: Marlin 5"/>
+                    <Label text="Color"/><TextField fx:id="txtColor" promptText="Ej: Negro"/>
+                    <Label text="Tipo de bicicleta"/>
+                    <ComboBox fx:id="cmbTipo" maxWidth="Infinity" promptText="Selecciona un tipo"/>
+                    <Label text="Número de serie / marco"/><TextField fx:id="txtNumeroSerie" promptText="Código único de la bicicleta"/>
+                    <HBox spacing="8">
+                        <Button text="REGISTRAR" onAction="#registrar" maxWidth="Infinity" style="-fx-background-color: #1769aa; -fx-text-fill: white; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+                        <Button text="LIMPIAR" onAction="#limpiar" style="-fx-background-color: #e8eef5; -fx-text-fill: #12345a;"/>
+                    </HBox>
+                </VBox>
+                <VBox spacing="12" HBox.hgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #dce4ee; -fx-border-radius: 10;">
+                    <padding><Insets top="16" right="17" bottom="16" left="17"/></padding>
+                    <Label text="BICICLETAS REGISTRADAS" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #12345a;"/>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <TextField fx:id="txtBuscarRut" promptText="Buscar por RUT..." HBox.hgrow="ALWAYS"/>
+                        <Button text="BUSCAR" onAction="#buscarPorRut" style="-fx-background-color: #1769aa; -fx-text-fill: white;"/>
+                        <Button text="VER TODOS" onAction="#mostrarTodos" style="-fx-background-color: #e8eef5; -fx-text-fill: #12345a;"/>
+                    </HBox>
+                    <TableView fx:id="tablaRegistros" VBox.vgrow="ALWAYS" prefHeight="500">
+                        <columns>
+                            <TableColumn fx:id="colRut" text="RUT" prefWidth="105"/>
+                            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="145"/>
+                            <TableColumn fx:id="colCarrera" text="Carrera" prefWidth="110"/>
+                            <TableColumn fx:id="colMarca" text="Marca" prefWidth="85"/>
+                            <TableColumn fx:id="colModelo" text="Modelo" prefWidth="105"/>
+                            <TableColumn fx:id="colColor" text="Color" prefWidth="75"/>
+                            <TableColumn fx:id="colTipo" text="Tipo" prefWidth="90"/>
+                            <TableColumn fx:id="colSerie" text="N° Serie" prefWidth="110"/>
+                        </columns>
+                        <placeholder><Label text="Todavía no hay bicicletas registradas"/></placeholder>
+                    </TableView>
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button text="ELIMINAR SELECCIONADO" onAction="#eliminarSeleccionado" style="-fx-background-color: #b42318; -fx-text-fill: white;"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+            <Label fx:id="lblMensaje" text="Listo para registrar bicicletas." style="-fx-font-size: 12px;"/>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #e7edf5;">
+            <padding><Insets top="9" right="22" bottom="9" left="22"/></padding>
+            <Label text="Duoc Bike Register · Proyecto académico de Programación Orientada a Objetos" style="-fx-text-fill: #52677f; -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+</BorderPane>
