@@ -1,4 +1,4 @@
 package cl.duoc.BikeRegister;
 
-public class Estudiante {
+public class Launcher {
 }

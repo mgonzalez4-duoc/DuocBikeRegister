@@ -1,4 +1,4 @@
-package cl.duoc.BikeRegister;
+package model;
 
 public class Bicicleta extends Vehiculo {
 }
