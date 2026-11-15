@@ -1,4 +1,4 @@
-package cl.duoc.BikeRegister.Repository;
+package cl.duoc.BikeRegister;
 
 public class App {
 }
