@@ -1,4 +1,7 @@
-package cl.duoc.BikeRegister.controller.model;
+package cl.duoc.BikeRegister.model;
+
 
 public class Bicicleta extends Vehiculo {
+    private String tipo;
+
 }
