@@ -11,7 +11,7 @@ public class ConexionBD {
 
     private static final String USER = "root";
 
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "Genius13&";
 
     public static Connection conectar() {
 
