@@ -7,14 +7,33 @@ import java.sql.SQLException;
 public class ConexionBD {
 
     private static final String URL =
-            "jdbc:mysql://localhost:3306/registro_estudiantes";
+            "jdbc:mysql://localhost:3306/duoc_bike_register";
 
-    private static final String USUARIO = "root";
-    private static final String CLAVE = "";
+    private static final String USER = "root";
 
-    public static Connection obtenerConexion()
-            throws SQLException {
+    private static final String PASSWORD = "";
 
-        return DriverManager.getConnection(URL,USUARIO,CLAVE);
+    public static Connection conectar() {
+
+        Connection conexion = null;
+
+        try {
+
+            conexion = DriverManager.getConnection(
+                    URL,
+                    USER,
+                    PASSWORD
+            );
+
+            System.out.println("Conexion exitosa a MySQL");
+
+        } catch (SQLException e) {
+
+            System.out.println("Error al conectar con MySQL");
+            e.printStackTrace();
+
+        }
+
+        return conexion;
     }
 }
